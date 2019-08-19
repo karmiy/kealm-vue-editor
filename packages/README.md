@@ -19,7 +19,7 @@
 
 <h2 id="2">文档</h2>
 
-构建中
+[kealm-vue-editor文档](https://karmiy.github.io/kealm-vue-editor/docs/dist/index.html)
 
 <h2 id="3">安装</h2>
 
@@ -36,6 +36,12 @@
     
 
 <h2 id="5">更新日志</h2>
+
+### 2019-08-19
+
+#### v0.2.6
+
+- 新增文档页，API示例
 
 ### 2019-08-19
 
