@@ -1,0 +1,115 @@
+/* 工具栏 */
+#km-editor .km-tools-bar {
+    // display: flex;
+    height: 50px;
+    // padding: 0 20px;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    background-color: #f6f6f6;
+    // box-shadow: 0 1px 2px #ccc;
+    .tools-container {
+        position: relative;
+        height: 100%;
+        /* 滚动控制器prev */
+        .tools-tab {
+            position: absolute;
+            top: 0;
+            width: 32px;
+            height: 100%;
+            text-align: center;
+            background-color: #fff;
+            overflow: hidden;
+            transition: opacity .5s;
+            cursor: pointer;
+            i {
+                color: rgba(0, 0, 0, .45);
+                &:hover {
+                    color: #3a3d42;
+                }
+            }
+            &.tools-prev-tab {
+                box-shadow: 2px 0 10px #ddd;
+                left: 0;
+            }
+            &.tools-next-tab {
+                box-shadow: -2px 0 10px #ddd;
+                right: 0;
+            }
+            &.disabled {
+                color: #a2a8b1;
+                cursor: not-allowed;
+            }
+        }
+        /* 滚动容器 */
+        .tools-scroll {
+            height: 100%;
+            overflow: hidden;
+            .tools-wrap {
+                display: inline-block;
+                min-width: 100%;
+                height: 100%;
+                .tools {
+                    display: flex;
+                    height: 100%;
+                    padding: 0 20px;
+                    justify-content: space-between;
+                    align-items: center;
+                    .tools-left {
+                        margin-right: 40px;
+                    }
+                    .tools-right {
+                        margin-left: 40px;
+                    }
+                    .tools-left, .tools-right, .tools-left-default, .tools-right-default {
+                        display: flex;
+                        height: 100%;
+                        align-items: center;
+                    }
+                    .tools-left, .tools-right {
+                        .tools-item {
+                            padding: 0 10px;
+                            cursor: pointer;
+                        }
+                        .tools-item-fill {
+                            // display: flex;
+                            display: inline-block;
+                            height: 100%;
+                            white-space: nowrap;
+                            &:after {
+                                content: '';
+                                display: inline-block;
+                                height: 100%;
+                                vertical-align: middle;
+                            }
+                            // justify-content: center;
+                            // align-items: center;
+                        }
+                    }
+
+                    /* 分割线 */
+                    em.divider {
+                        width: 1px;
+                        height: 20px;
+                        margin: 0 5px;
+                        background-color: #ddd;
+                    }
+
+                    /* 左边框合并 */
+                    .left-border-collapse {
+                        position: relative;
+                        margin-left: -1px;
+
+                        &:hover, &:focus {
+                            z-index: 10;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+/*下拉*/
+.text.salus-dropdown-menu-item, .salus-dropdown-menu-submenu-title {
+    height: 38px;
+    line-height: 30px;
+}

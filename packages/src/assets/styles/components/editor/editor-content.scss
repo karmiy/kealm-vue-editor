@@ -1,0 +1,60 @@
+#km-editor {
+    border: 1px solid #ddd;
+    border-top: none;
+    .content-bar {
+        display: flex;
+        width: 100%;
+        height: calc(100vh - 54px);
+        margin-top: 1px;
+
+        .edit-pad {
+            position: relative;
+            display: flex;
+            width: 100%;
+            overflow: hidden;
+            // markdown显示区域
+            .edit-view {
+                height: 100%;
+                // padding: 24px;
+                border-right: 1px solid #ddd;
+                // overflow: auto;
+                .edit-view-content {
+                    height: 100%;
+                    // display: flex;
+                    // min-height: 100%; // 最小也要100%高度，否则点击空白无法出现光标
+                }
+            }
+
+            // html显示区域
+            .html-view {
+                overflow: auto;
+                padding: 0 24px 50px;
+                line-height: 2;
+                background-color: #fff;
+                font-size: 14px;
+                color: #555;
+
+                &.isPreview {
+                    padding-right: 200px;
+                    word-break: break-all;
+                }
+
+                img {
+                    cursor: pointer;
+                }
+            }
+
+            /* 本文导读 */
+            .reading-anchor-host {
+                /*width: 180px;*/
+                flex-shrink: 0;
+                flex-grow: 0;
+            }
+        }
+    }
+
+    /* 隐藏的快捷下拉菜单 */
+    .hidden-quick-dropdown {
+        position: absolute;
+    }
+}

@@ -1,0 +1,42 @@
+.kmy-help-modal {
+    .help-body {
+        height: 100%;
+        margin: 0 5px;
+        padding: 0 20px;
+        line-height: 1.6;
+        overflow-y: auto;
+        color: #333;
+        word-wrap: break-word;
+        font-size: 14px;
+        h5 {
+            font-size: 14px;
+            i {
+                vertical-align: middle;
+            }
+        }
+        ul {
+            display: block;
+            padding: 10px 20px 20px 40px;
+            list-style-type: disc;
+            li {
+                list-style: disc;
+                display: list-item;
+                text-align: -webkit-match-parent;
+            }
+        }
+        a {
+            color: #555;
+            &:hover {
+                color: #1394ff;
+            }
+        }
+        table {
+            width: 100%;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        p {
+            padding: 10px 0;
+        }
+    }
+}

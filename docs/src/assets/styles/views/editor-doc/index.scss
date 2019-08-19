@@ -1,0 +1,295 @@
+$theme: #3c78d8;
+
+#km-doc {
+    display: flex;
+    height: 100%;
+    /* 左侧文档菜单 */
+    .doc-sidebar {
+        position: relative;
+        width: 220px;
+        height: 100%;
+        //border-right: 2px solid #f5f5f5;
+        border-right: 2px solid #eee;
+        flex-grow: 0;
+        flex-shrink: 0;
+        transition: width .5s;
+        &.hidden {
+            width: 0;
+            .collapse {
+                background-color: #59b4ff;
+            }
+            .collapse:before {
+                border-color: transparent transparent #59b4ff #59b4ff;
+            }
+
+            .collapse:after {
+                border-color: #59b4ff transparent transparent #59b4ff;
+            }
+        }
+        /* 菜单栏展开收起图标 */
+        .collapse {
+            position: absolute;
+            display: flex;
+            width: 10px;
+            height: 100px;
+            right: -10px;
+            top: 50%;
+            justify-content: center;
+            align-items: center;
+            transform: translateY(-50%);
+            background-color: #b8dfff;
+            color: #fff;
+            cursor: pointer;
+            &:before, &:after {
+                content: '';
+                position: absolute;
+                border-width: 4px 5px;
+                border-style: solid;
+                left: 0;
+            }
+            &:before {
+                border-color: transparent transparent #b8dfff #b8dfff;
+                top: -8px;
+            }
+            &:after {
+                border-color: #b8dfff transparent transparent #b8dfff;
+                bottom: -8px;
+            }
+        }
+        /* 菜单栏 */
+        .doc-sidebar-collapse {
+            height: 100%;
+            overflow: hidden;
+            ul.doc-sidebar-container {
+                width: 220px;
+                height: 100%;
+                overflow: auto;
+
+                h2.doc-sidebar-title {
+                    height: 48px;
+                    line-height: 48px;
+                    padding-top: 20px;
+                    padding-left: 24px;
+                    font-size: 16px;
+                    font-weight: bold;
+                    color: #495060;
+                }
+
+                li.doc-sidebar-item {
+                    overflow: hidden;
+                    white-space: nowrap;
+
+                    a {
+                        display: block;
+                        height: 40px;
+                        line-height: 40px;
+                        padding-left: 44px;
+                        font-size: 14px;
+                        color: #5a5a5a;
+
+                        &:hover {
+                            background-color: #e1f5ea;
+                            color: $theme;
+                        }
+
+                        &.active {
+                            color: $theme;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    /* 右侧显示区 */
+    .doc-wrapper {
+        box-sizing: border-box;
+        flex-grow: 1;
+        flex-shrink: 1;
+        height: 100%;
+        padding: 28px 30px;
+        overflow: auto;
+        font-size: 14px;
+        color: #404040;
+        .page-box {
+            h1 {
+                font-weight: bold;
+                margin-bottom: 16px;
+            }
+
+            /* 参考链接 */
+            a.reference-link {
+                color: #1394ff;
+            }
+
+            /* 文档导读 */
+            .anchor-wrap {
+                position: fixed;
+                width: 260px;
+                right: 20px;
+                z-index: 100;
+                transition: width .5s;
+
+                &.hidden {
+                    width: 0;
+
+                    .anchor-collapse {
+                        overflow: hidden;
+                    }
+
+                    .collapse {
+                        background-color: #59b4ff;
+                    }
+
+                    .collapse:before {
+                        border-color: transparent #59b4ff #59b4ff transparent;
+                    }
+
+                    .collapse:after {
+                        border-color: #59b4ff #59b4ff transparent transparent;
+                    }
+                }
+
+                .anchor-collapse {
+                    .anchor-container {
+                        width: 260px;
+
+                        .title {
+                            position: relative;
+                            margin-left: 1px;
+                            padding: 7px 0 12px 14px;
+                            border-left: 2px solid #e5eaf2;
+                            background-color: #fff;
+
+                            &:after {
+                                content: '';
+                                position: absolute;
+                                width: 200px;
+                                height: 1px;
+                                background-color: #ccc;
+                                left: 12px;
+                                bottom: 1px;
+                            }
+                        }
+
+                        .salus-anchor-wrapper {
+                            background-color: transparent;
+
+                            .salus-anchor-link {
+                                background-color: #fff;
+                            }
+                        }
+                    }
+                }
+
+                .collapse {
+                    position: absolute;
+                    display: flex;
+                    width: 10px;
+                    height: 100px;
+                    left: -8px;
+                    top: 50%;
+                    justify-content: center;
+                    align-items: center;
+                    transform: translateY(-50%);
+                    //background-color: rgba(19, 148, 255, .3);
+                    background-color: #b8dfff;
+                    color: #fff;
+                    cursor: pointer;
+
+                    &:before, &:after {
+                        content: '';
+                        position: absolute;
+                        border-width: 4px 5px;
+                        border-style: solid;
+                        left: 0;
+                    }
+
+                    &:before {
+                        border-color: transparent #b8dfff #b8dfff transparent;
+                        top: -8px;
+                    }
+
+                    &:after {
+                        border-color: #b8dfff #b8dfff transparent transparent;
+                        bottom: -8px;
+                    }
+                }
+            }
+
+            /* 示例编辑器工具栏class */
+            .edit-toolbar {
+                height: 60px;
+            }
+
+            /* 示例编辑器内容区class */
+            .edit-container {
+                height: 350px;
+            }
+
+            /* 文档块 */
+            .detail-box {
+                margin-bottom: 40px;
+
+                & > h2 {
+                    font-weight: bold;
+                    margin-bottom: 16px;
+                }
+
+                & > p {
+                    margin: 16px 0;
+                }
+
+                & > textarea {
+                    margin-bottom: 16px;
+                }
+
+
+                /* 引用 */
+                .code-left-line {
+                    border-left: 3px solid $theme;
+                    padding-left: 4px;
+                }
+
+                /* 文档按钮 */
+                .detail-box-button {
+                    margin-bottom: 16px;
+                }
+
+                /* API圆点 */
+                .row-in-round {
+                    margin: 16px 0;
+                    &:before {
+                        content: " ";
+                        display: inline-block;
+                        width: 8px;
+                        height: 8px;
+                        margin-right: 8px;
+                        border: 1px solid $theme;
+                        border-radius: 50%;
+                    }
+                }
+            }
+
+            /* 自定义工具栏按钮 */
+            .button-tool {
+                overflow: visible;
+            }
+            .button-wrap {
+                white-space: nowrap;
+            }
+
+            /* sidebar */
+            .sidebar {
+                width: 250px;
+                padding: 10px 0;
+                border-right: 1px solid #ddd;
+                overflow: auto;
+
+                .isFolder {
+                    font-weight: bold;
+                    color: rgba(0, 0, 0, .9);
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,59 @@
+#km-editor .km-reading-anchor {
+    position: relative;
+    width: 180px;
+    &.hidden {
+        width: 0;
+    }
+    &.transition {
+        transition: width .5s;
+    }
+    &.fixed {
+        position: absolute;
+        height: 0;
+        right: 20px;
+    }
+    .reading-anchor {
+        position: relative;
+        background-color: #fff;
+        overflow: hidden;
+        &:before {
+            content: '';
+            position: absolute;
+            width: 2px;
+            height: 100%;
+            left: 1px;
+            top: 0;
+            background-color: #e5eaf2;
+        }
+
+        .anchor-container {
+            min-width: 180px;
+        }
+
+        .anchor-title {
+            position: relative;
+            padding: 10px 20px 0;
+
+            p {
+                padding-bottom: 10px;
+                font-size: 14px;
+                color: #303742;
+            }
+
+            em {
+                display: block;
+                width: 100%;
+                border-top: 1px solid #ccc;
+                padding-bottom: 10px;
+            }
+        }
+
+        .salus-anchor-wrapper {
+            background-color: transparent;
+        }
+
+        .anchor-space a {
+            padding-left: 20px;
+        }
+    }
+}

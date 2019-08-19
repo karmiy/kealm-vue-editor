@@ -1,0 +1,62 @@
+.km-upload-file-modal {
+    .upload-file-container {
+        position: relative;
+        display: flex;
+        padding-top: 10px;
+
+        .choose-file, .upload-file {
+            flex-grow: 0;
+            flex-shrink: 0;
+        }
+
+        .choose-file {
+            width: 100px;
+            border-radius: 0;
+        }
+
+        .upload-file {
+            width: 90px;
+        }
+
+        input.file-name {
+            flex-grow: 1;
+            flex-shrink: 1;
+            margin-left: -1px;
+            margin-right: 10px;
+            border-radius: 0;
+        }
+
+        input.file-upload {
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 100px;
+            height: calc(100% - 10px);
+            opacity: 0;
+            z-index: 10;
+            font-size: 0;
+            cursor: pointer;
+        }
+    }
+
+    .tip-info {
+        padding-top: 10px;
+        color: #666;
+        font-weight: bold;
+    }
+
+    .warning-info {
+        padding: 10px 0 0 10px;
+
+        i {
+            color: #f2aa05;
+            vertical-align: middle;
+        }
+
+        span {
+            padding-left: 5px;
+            color: red;
+            vertical-align: middle;
+        }
+    }
+}

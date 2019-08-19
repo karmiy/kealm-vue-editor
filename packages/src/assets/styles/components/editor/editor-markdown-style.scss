@@ -1,0 +1,34 @@
+#km-editor {
+    .edit-view {
+        .CodeMirror {
+            // flex-grow: 1;
+            // height: auto; // 默认codemirror有个height: 300px的样式要去掉
+            height: 100%;
+            line-height: 1.7;
+            background-color: inherit;
+            color: #535b68;
+            font-size: 14px;
+
+            // 编辑区左右间距
+            .CodeMirror-scroll {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            // 文本选中背景色
+            div.CodeMirror-selected {
+                background: #B5D5EE !important;
+            }
+
+            // 括号匹配色调
+            &.cm-s-railscasts .CodeMirror-matchingbracket {
+                color: #fe4365 !important;
+            }
+
+            // 标签错误背景色
+            &.cm-s-railscasts span.cm-error {
+                background-color: #f9cdad;
+            }
+        }
+    }
+}

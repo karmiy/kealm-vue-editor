@@ -1,0 +1,11 @@
+.km-diff-modal {
+    .diff-container {
+        background-color: #f5f5f5;
+        del {
+            background-color: #ffbbbb !important;
+        }
+        ins {
+            background-color: #bbffbb !important;
+        }
+    }
+}
