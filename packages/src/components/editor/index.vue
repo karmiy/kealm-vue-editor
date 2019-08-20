@@ -507,10 +507,10 @@
                         this.codeMirror.replaceSelection(curSelectText ? `<u>${curSelectText}</u>` : '<u>下划线</u>');
                         break;
                     case "unordered-list": // 无序列表
-                        this.codeMirror.replaceSelection(curSelectText ? `- ${curSelectText}\n` : '- 普通列表\n');
+                        this.codeMirror.replaceSelection(curSelectText ? `- ${curSelectText}` : '- 普通列表');
                         break;
                     case "ordered-list": // 有序列表
-                        this.codeMirror.replaceSelection(curSelectText ? `1. ${curSelectText}\n` : '1. 有序列表\n');
+                        this.codeMirror.replaceSelection(curSelectText ? `1. ${curSelectText}` : '1. 有序列表');
                         break;
                     case "GFM-task": // 代办任务
                         this.codeMirror.replaceSelection(curSelectText ? `- [x] ${curSelectText}\n` : '- [x] 任务待办\n');
