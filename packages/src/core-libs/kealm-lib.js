@@ -1,5 +1,5 @@
 /* @kealm/vue-components */
-import '@kealm/vue-components/style/salus.min.css';
+import '@/assets/styles/kealm-components/index.min.css';
 import {
     Tooltip,
     Button,
