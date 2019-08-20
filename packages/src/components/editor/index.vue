@@ -179,7 +179,10 @@
              */
             initExtraKeys() {
                 // 快捷键
-                const extraKeys = ['F9', 'F10', `${Ctrl}-S`, `Shift-${Ctrl}-Z`, `${Ctrl}-Y`, `${Ctrl}-B`, `${Ctrl}-I`, `${Ctrl}-L`, `${Ctrl}-G`];
+                const extraKeys = ['F9', 'F10', `${Ctrl}-S`, `Shift-${Ctrl}-Z`, `${Ctrl}-Y`, `${Ctrl}-B`,
+                    `${Ctrl}-I`, `${Ctrl}-L`, `${Ctrl}-G`, `${Ctrl}-1`, `${Ctrl}-2`, `${Ctrl}-3`,
+                    `${Ctrl}-4`, `${Ctrl}-5`, `${Ctrl}-6`, `${Ctrl}-H`, `${Ctrl}-K`, `Shift-${Ctrl}-C`,
+                    `${Ctrl}-U`, `Shift-${Ctrl}-O`, `${Ctrl}-Q`, `Shift-${Ctrl}-S`, `Shift-${Ctrl}-U`];
                 const _keys = {};
                 extraKeys.forEach(extraKey => {
                     _keys[extraKey] = codeMirror => {
@@ -284,8 +287,26 @@
                         this.$emit('save', this.getMarkdown());
                         break;
                     case `Shift-${Ctrl}-Z`: // 重做
-                        case `${Ctrl}-Y`:
+                    case `${Ctrl}-Y`:
                         this.quickInsert('redo');
+                        break;
+                    case `${Ctrl}-1`: // 标题1
+                        this.quickInsert('header1');
+                        break;
+                    case `${Ctrl}-2`: // 标题2
+                        this.quickInsert('header2');
+                        break;
+                    case `${Ctrl}-3`: // 标题3
+                        this.quickInsert('header3');
+                        break;
+                    case `${Ctrl}-4`: // 标题4
+                        this.quickInsert('header4');
+                        break;
+                    case `${Ctrl}-5`: // 标题5
+                        this.quickInsert('header5');
+                        break;
+                    case `${Ctrl}-6`: // 标题6
+                        this.quickInsert('header6');
                         break;
                     case `${Ctrl}-B`: // 加粗
                         this.quickInsert('bold');
@@ -293,22 +314,38 @@
                     case `${Ctrl}-I`: // 斜体
                         this.quickInsert('italic');
                         break;
+                    case `${Ctrl}-H`: // 分割线
+                        this.quickInsert('horline');
+                        break;
+                    case `${Ctrl}-K`: // 代码块
+                        this.quickInsert('code_block');
+                        break;
+                    case `Shift-${Ctrl}-C`: // 行内代码
+                        this.quickInsert('code_line');
+                        break;
+                    case `${Ctrl}-U`: // 无序列表
+                        this.quickInsert('unordered-list');
+                        break;
+                    case `Shift-${Ctrl}-O`: // 有序列表
+                        this.quickInsert('ordered-list');
+                        break;
+                    case `${Ctrl}-Q`: // 插入引用
+                        this.quickInsert('quote');
+                        break;
+                    case `Shift-${Ctrl}-S`: // 插入删除线
+                        this.quickInsert('strikethrough');
+                        break;
+                    case `Shift-${Ctrl}-U`: // 插入下划线
+                        this.quickInsert('underline');
+                        break;
                     case `${Ctrl}-L`: // 链接
                         this.$refs.toolbar.showURLModal = true;
-                        /*this.$nextTick(() => {
-                            // 窗口显示需要点击事件来触发
-                            document.body.click();
-                        })*/
                         break;
                     case `${Ctrl}-G`: // 插入图片
                         this.quickVisible = true;
                         this.$refs.quickDropdownMenu.showUploadImgModal = true;
                         this.$nextTick(() => {
                             this.quickVisible = false;
-                            /*this.$nextTick(() => {
-                                // 窗口显示需要点击事件来触发
-                                document.body.click();
-                            })*/
                         })
                         break;
                 }
