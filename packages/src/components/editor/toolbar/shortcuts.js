@@ -14,6 +14,7 @@ export const SHORT_CUTS= [
     {key: 'Ctrl + Shift + S / Command + Shift + S', des: '插入删除线', desEn: 'Insert strikethrough'},
     {key: 'Ctrl + Shift + U / Command + Shift + U', des: '插入下划线', desEn: 'Insert underline'},
     {key: 'Ctrl + H / Command + H', des: '插入分割线', desEn: 'Insert cut-off rule'},
+    {key: 'Ctrl + Shift + C / Command + Shift + C', des: '行内代码', desEn: 'Inline Code'},
     {key: 'Ctrl + H / Command + K', des: '代码块', desEn: 'Code block'},
     {key: 'Ctrl + U / Command + U', des: '插入无序列表', desEn: 'Insert unordered list'},
     {key: 'Ctrl + Shift + O / Command + Shift + O', des: '插入有序列表', desEn: 'Insert ordered list'},
