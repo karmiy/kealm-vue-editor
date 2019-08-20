@@ -19,13 +19,13 @@
             <!-- 编辑预览区 -->
             <div ref="edit-pad" class="edit-pad">
                 <!-- 编辑区 -->
-                <div v-show="isEditView" class="edit-view scroll-bar" :class="preview ? 'salus-col-12' : 'salus-col-24'">
+                <div v-show="isEditView" class="edit-view scroll-bar" :class="preview ? 'col-half' : 'col-fill'">
                     <div id="editContent" class="edit-view-content"></div>
                     <!--<textarea id="editContent"></textarea>-->
                 </div>
                 <!-- 预览区 -->
                 <div ref="previewBar" v-show="isEditView && preview || !isEditView"                                                                                                                                                                                                                                                 @click="previewListener"
-                     class="html-view scroll-bar" :class="{'salus-col-12' : isEditView, 'salus-col-24': !isEditView, isPreview: !isEditView && anchorList.length}"></div>
+                     class="html-view scroll-bar" :class="{'col-half' : isEditView, 'col-fill': !isEditView, isPreview: !isEditView && anchorList.length}"></div>
                 <!-- 本文导读 -->
                 <reading-anchor class="reading-anchor-host" :visible="isReadingVisible" :anchorList="anchorList" :isStatic="isEditView" :getContainer="getAnchorContainer" />
             </div>

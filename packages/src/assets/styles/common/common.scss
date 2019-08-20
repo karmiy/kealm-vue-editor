@@ -1,5 +1,13 @@
-/* 滚动条 */
 #km-editor {
+    /* 满屏 */
+    .col-fill {
+        width: 100%;
+    }
+    /* 半屏 */
+    .col-half {
+        width: 50%;
+    }
+    /* 滚动条 */
     .scroll-bar, .scroll-bar * {
         &::-webkit-scrollbar {
             width: 10px;
