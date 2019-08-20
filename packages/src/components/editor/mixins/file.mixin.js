@@ -6,6 +6,9 @@ const fileUnits = {
     'GB': 1024 * 1024 * 1024,
     'TB': 1024 * 1024 * 1024 * 1024,
 }
+/* 空函数 */
+const noop = () => {};
+
 export default {
     data() {
         return {
@@ -78,19 +81,20 @@ export default {
         /**
          * 模拟上传进度
          */
-        virtualProgress(startTime, resolve) {
+        virtualProgress(startTime, loadedCallback, resolve) {
             requestAnimationFrame(() => {
                 const rate = (Date.now() - startTime) / this.virtualProgressTime;
-                this.loaded = Math.floor(Math.min(rate, 1) * 100);
-                rate < 1 ? this.virtualProgress(startTime, resolve) : resolve();
+                loadedCallback(Math.floor(Math.min(rate, 1) * 100))
+                // this.loaded = Math.floor(Math.min(rate, 1) * 100);
+                rate < 1 ? this.virtualProgress(startTime, loadedCallback, resolve) : resolve();
             })
         },
         /**
          * 开启模拟上传
          */
-        startVirtualUpload() {
+        startVirtualUpload(loadedCallback) {
             return new Promise(resolve => {
-                this.virtualProgress(Date.now(), resolve);
+                this.virtualProgress(Date.now(), loadedCallback, resolve);
             })
         },
         /**
@@ -118,18 +122,28 @@ export default {
                 // 判断是否有upload事件
                 const { upload } = options;
                 const progress = [];
+                // 进度条操作函数回调，当上传取消时，将函数重置为空函数，不再赋值进度
+                let loadedCallback = (loaded) => {
+                    if(!this.file) loadedCallback = noop;
+                    if(loadedCallback === noop) return;
+                    this.loaded = loaded;
+                }
                 // 有upload，调用之，否则直接生成临时url
                 progress.push(
                     upload ?
-                        upload(file, (loaded) => this.loaded = loaded)
+                        upload(file, loadedCallback)
                         :
                         Promise.resolve(window.URL.createObjectURL(file))
                 );
                 // 是否需要提供虚拟进度
-                this.isVirtualProgress && progress.push(this.startVirtualUpload());
+                this.isVirtualProgress && progress.push(this.startVirtualUpload(loadedCallback));
 
                 // 等待请求/虚拟进度结束
                 const [ url ] = await Promise.all(progress);
+
+                // 中途点取消
+                if(loadedCallback === noop) return;
+
                 this.$message['success'](`上传成功`, {
                     pos: 'topCenter',
                 });
