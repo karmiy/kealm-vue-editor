@@ -1,6 +1,6 @@
 {
   "name": "@kealm/vue-editor",
-  "version": "0.2.8",
+  "version": "0.2.9",
   "description": "vue-editor for markdown",
   "homepage": "https://karmiy.github.io/kealm-vue-editor/docs/dist/index.html",
   "main": "./lib/index.js",
