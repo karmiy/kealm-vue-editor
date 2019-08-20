@@ -7,10 +7,10 @@
             :prevMarkedString="prevMarkedString"
             :nextMarkedString="nextMarkedString"
         >
-            <slot name="tools-left-before":isEditView="isEditView" slot="tools-left-before" />
-            <slot name="tools-left-after":isEditView="isEditView" slot="tools-left-after" />
-            <slot name="tools-right-before":isEditView="isEditView" slot="tools-right-before" />
-            <slot name="tools-right-after":isEditView="isEditView" slot="tools-right-after" />
+            <slot name="tools-left-before" :isEditView="isEditView" slot="tools-left-before" />
+            <slot name="tools-left-after" :isEditView="isEditView" slot="tools-left-after" />
+            <slot name="tools-right-before" :isEditView="isEditView" slot="tools-right-before" />
+            <slot name="tools-right-after" :isEditView="isEditView" slot="tools-right-after" />
         </toolbar>
         <!-- 内容区 -->
         <div class="content-bar" :class="contentClass">
@@ -534,14 +534,14 @@
                         this.codeMirror.replaceSelection(curSelectText ? `###### ${curSelectText}\n` : '###### 标题6\n');
                         break;
                     case "url": // 插入链接url
-                        value = value == "" ? "http://" : value;
+                        value = value === "" ? "http://" : value;
                         this.codeMirror.replaceSelection(curSelectText ? `[${curSelectText}](${value})` : `[文字链接](${value})`);
                         break;
                     case "horline": // 插入分割线
-                        this.codeMirror.replaceSelection(curSelectText ? `${curSelectText}------------` : '------------');
+                        this.codeMirror.replaceSelection(curSelectText ? `${curSelectText}************\n` : '************\n');
                         break;
                     case "quote": // 插入引用
-                        this.codeMirror.replaceSelection(curSelectText ? `> ${curSelectText}\n` : '> 引用\n');
+                        this.codeMirror.replaceSelection(curSelectText ? `> ${curSelectText}` : '> 引用');
                         break;
                     case 'quoteLink': // 插入锚点
                         const { quoteName, quoteId, quoteUrl, quoteTitle } = value;
