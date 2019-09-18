@@ -5,6 +5,7 @@ import Vue from 'vue';
 import App from './app.vue';
 import router from './router'
 import './assets/styles/common';
+// style includes: tree、collapse、table
 import './assets/styles/components/index.min.css'
 
 // 安装组件库

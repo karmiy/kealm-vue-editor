@@ -1,4 +1,5 @@
 /* @kealm/vue-components */
+// style includes: tooltip、button、modal、form、input-number、radio、dropdown、menu、input、anchor、alert、message、grid、tabs
 import '@/assets/styles/kealm-components/index.min.css';
 import {
     Tooltip,
