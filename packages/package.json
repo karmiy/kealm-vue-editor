@@ -1,8 +1,8 @@
 {
   "name": "@kealm/vue-editor",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "vue-editor for markdown",
-  "homepage": "https://karmiy.github.io/kealm-vue-editor/docs/dist/index.html",
+  "homepage": "https://karmiy.gitee.io/kealm-vue-editor",
   "main": "./lib/index.js",
   "scripts": {
     "build": "webpack --progress --config build/webpack.conf.js --env=dev",

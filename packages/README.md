@@ -19,7 +19,9 @@
 
 <h2 id="2">文档</h2>
 
-[kealm-vue-editor文档](https://karmiy.github.io/kealm-vue-editor/docs/dist/index.html)
+- [github document](https://karmiy.github.io/kealm-vue-editor/docs/dist/index.html)
+
+- [gitee document](https://karmiy.gitee.io/kealm-vue-editor)
 
 <h2 id="3">安装</h2>
 
